@@ -87,6 +87,10 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    padding-bottom: 10px;
     -webkit-animation: slideLeft 2s 2s forwards;
             animation: slideLeft 2s 2s forwards;
   }
@@ -100,6 +104,13 @@ body {
   position: relative;
 }
 
+@media (max-width: 767px) {
+  .initial-overlay .circle .outer-c {
+    width: 160px;
+    height: 160px;
+  }
+}
+
 .initial-overlay .circle .outer-c .inner-c {
   position: absolute;
   border-radius: 100%;
@@ -110,6 +121,13 @@ body {
   width: 170px;
   height: 170px;
   background: #b39166;
+}
+
+@media (max-width: 767px) {
+  .initial-overlay .circle .outer-c .inner-c {
+    width: 135px;
+    height: 135px;
+  }
 }
 
 .initial-overlay .triangle {
@@ -136,9 +154,9 @@ body {
 
 @media (max-width: 767px) {
   .initial-overlay .triangle .outer-tr {
-    border-left: 100px solid transparent;
-    border-right: 100px solid transparent;
-    border-bottom: 174px solid #100f0f;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 138px solid #100f0f;
   }
 }
 
@@ -155,10 +173,11 @@ body {
 
 @media (max-width: 767px) {
   .initial-overlay .triangle .outer-tr .inner-tr {
-    left: -81px;
-    border-left: 80px solid transparent;
-    border-right: 80px solid transparent;
-    border-bottom: 138px solid #b39166;
+    top: 24px;
+    left: -61px;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 104px solid #b39166;
   }
 }
 
@@ -180,7 +199,11 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     padding-left: 0;
+    padding-top: 10px;
     -webkit-animation: slideLeft 2s 3s forwards;
             animation: slideLeft 2s 3s forwards;
   }
@@ -193,6 +216,13 @@ body {
   position: relative;
 }
 
+@media (max-width: 767px) {
+  .initial-overlay .square .outer-sq {
+    width: 160px;
+    height: 160px;
+  }
+}
+
 .initial-overlay .square .outer-sq .inner-sq {
   position: absolute;
   top: 50%;
@@ -202,6 +232,13 @@ body {
   width: 170px;
   height: 170px;
   background: #b39166;
+}
+
+@media (max-width: 767px) {
+  .initial-overlay .square .outer-sq .inner-sq {
+    width: 135px;
+    height: 135px;
+  }
 }
 
 @-webkit-keyframes slideUp {

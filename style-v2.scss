@@ -86,6 +86,8 @@ body {
     background: $brown;
     @include breakpoint(xs) {
       justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 10px;
       animation: slideLeft 2s 2s forwards;
     }
 
@@ -95,6 +97,10 @@ body {
       background: $black;
       border-radius: 100%;
       position: relative;
+      @include breakpoint(xs) {
+        width: 160px;
+        height: 160px;
+      }
 
       .inner-c {
         position: absolute;
@@ -105,6 +111,10 @@ body {
         width: 170px;
         height: 170px;
         background: $brown;
+        @include breakpoint(xs) {
+          width: 135px;
+          height: 135px;
+        }
       }
     }
   }
@@ -124,9 +134,9 @@ body {
       border-bottom: 200px solid $black;
       position: relative;
       @include breakpoint(xs) {
-        border-left: 100px solid transparent;
-        border-right: 100px solid transparent;
-        border-bottom: 174px solid $black;
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        border-bottom: 138px solid $black;
       }
 
       .inner-tr {
@@ -139,11 +149,11 @@ body {
         border-right: 92px solid transparent;
         border-bottom: 160px solid $brown;
         @include breakpoint(xs) {
-          // top: 25px;
-          left: -81px;
-          border-left: 80px solid transparent;
-          border-right: 80px solid transparent;
-          border-bottom: 138px solid $brown;
+          top: 24px;
+          left: -61px;
+          border-left: 60px solid transparent;
+          border-right: 60px solid transparent;
+          border-bottom: 104px solid $brown;
         }
       }
     }
@@ -156,7 +166,9 @@ body {
     background: $brown;
     @include breakpoint(xs) {
       justify-content: center;
+      align-items: flex-start;
       padding-left: 0;
+      padding-top: 10px;
       animation: slideLeft 2s 3s forwards;
     }
     animation: slideUp 2s 3s forwards;
@@ -166,6 +178,10 @@ body {
       height: 200px;
       background: $black;
       position: relative;
+      @include breakpoint(xs) {
+        width: 160px;
+        height: 160px;
+      }
 
       .inner-sq {
         position: absolute;
@@ -175,6 +191,10 @@ body {
         width: 170px;
         height: 170px;
         background: $brown;
+        @include breakpoint(xs) {
+          width: 135px;
+          height: 135px;
+        }
       }
     }
   }
