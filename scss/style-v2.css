@@ -80,8 +80,8 @@ body {
   stroke: #ed1b76;
   fill: transparent;
   stroke-width: 2px;
-  -webkit-animation: arrow 1.5s infinite;
-          animation: arrow 1.5s infinite;
+  -webkit-animation: arrow 2s infinite;
+          animation: arrow 2s infinite;
 }
 
 .content .down-arrow .arrows path.a1 {
