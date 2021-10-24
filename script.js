@@ -303,9 +303,9 @@ tl.to("#dropshadow_shade feFuncA", {
 const scroll = {y: 0};
 gsap.to(scroll, {
   y: window.innerHeight * 7,
-  duration: 7,
+  duration: 6,
   ease: "none",
-  repeat: 1,
+  repeat: 0,
   yoyo: true,
   yoyoEase: true,
   onUpdate: () => {

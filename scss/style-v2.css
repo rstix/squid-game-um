@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
 @font-face {
   font-family: 'SquidFont';
-  src: url("GameOfSquids.ttf") format("truetype");
+  src: url("../GameOfSquids.ttf") format("truetype");
 }
 
 body {
@@ -13,20 +13,40 @@ body {
 
 .content {
   padding: 20px;
+}
+
+.content .section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: calc(100vh - 40px);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
+.content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.content ul li {
+  margin: 8px 0;
+  font-size: 20px;
+}
+
+.content ul li span {
+  font-size: 1.3em;
 }
 
 .content h1 {
   text-align: center;
+  margin-top: 0;
 }
 
 .content h1 span {
@@ -34,25 +54,65 @@ body {
   font-size: 2em;
 }
 
+.content .down-arrow {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.content .down-arrow .arrows {
+  width: 60px;
+  height: 72px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  bottom: 20px;
+}
+
+.content .down-arrow .arrows path {
+  stroke: #ed1b76;
+  fill: transparent;
+  stroke-width: 2px;
+  -webkit-animation: arrow 1.5s infinite;
+          animation: arrow 1.5s infinite;
+}
+
+.content .down-arrow .arrows path.a1 {
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+.content .down-arrow .arrows path.a2 {
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+
+.content .down-arrow .arrows path.a3 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
 .initial-overlay {
+  z-index: 100;
   position: fixed;
   width: 100vw;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-}
-
-@media (max-width: 767px) {
-  .initial-overlay {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
+  -webkit-animation: zIndex 1ms 2.8s forwards;
+          animation: zIndex 1ms 2.8s forwards;
 }
 
 .initial-overlay > div {
@@ -77,23 +137,12 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  -webkit-animation: slideUp 2s 2s forwards;
-          animation: slideUp 2s 2s forwards;
+  -webkit-animation: slideUp 2s 1.2s forwards;
+          animation: slideUp 2s 1.2s forwards;
   background: #b39166;
-}
-
-@media (max-width: 767px) {
-  .initial-overlay .circle {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    padding-bottom: 10px;
-    -webkit-animation: slideLeft 2s 2s forwards;
-            animation: slideLeft 2s 2s forwards;
-  }
+  margin-left: -1px;
+  margin-right: -1px;
+  padding: 3px;
 }
 
 .initial-overlay .circle .outer-c {
@@ -106,8 +155,8 @@ body {
 
 @media (max-width: 767px) {
   .initial-overlay .circle .outer-c {
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
   }
 }
 
@@ -125,22 +174,18 @@ body {
 
 @media (max-width: 767px) {
   .initial-overlay .circle .outer-c .inner-c {
-    width: 135px;
-    height: 135px;
+    width: 85px;
+    height: 85px;
   }
 }
 
 .initial-overlay .triangle {
   background: #b39166;
-  -webkit-animation: slideDown 2s 2.5s forwards;
-          animation: slideDown 2s 2.5s forwards;
-}
-
-@media (max-width: 767px) {
-  .initial-overlay .triangle {
-    -webkit-animation: slideRight 2s 2.5s forwards;
-            animation: slideRight 2s 2.5s forwards;
-  }
+  -webkit-animation: slideDown 2s 1.6s forwards;
+          animation: slideDown 2s 1.6s forwards;
+  margin-left: -1px;
+  margin-right: -1px;
+  padding: 3px;
 }
 
 .initial-overlay .triangle .outer-tr {
@@ -154,9 +199,9 @@ body {
 
 @media (max-width: 767px) {
   .initial-overlay .triangle .outer-tr {
-    border-left: 80px solid transparent;
-    border-right: 80px solid transparent;
-    border-bottom: 138px solid #100f0f;
+    border-left: 58px solid transparent;
+    border-right: 58px solid transparent;
+    border-bottom: 100px solid #100f0f;
   }
 }
 
@@ -173,11 +218,11 @@ body {
 
 @media (max-width: 767px) {
   .initial-overlay .triangle .outer-tr .inner-tr {
-    top: 24px;
-    left: -61px;
-    border-left: 60px solid transparent;
-    border-right: 60px solid transparent;
-    border-bottom: 104px solid #b39166;
+    top: 14px;
+    left: -46px;
+    border-left: 46px solid transparent;
+    border-right: 46px solid transparent;
+    border-bottom: 80px solid #b39166;
   }
 }
 
@@ -188,25 +233,12 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  padding-left: 10px;
+  padding-left: 5px;
   background: #b39166;
-  -webkit-animation: slideUp 2s 3s forwards;
-          animation: slideUp 2s 3s forwards;
-}
-
-@media (max-width: 767px) {
-  .initial-overlay .square {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    padding-left: 0;
-    padding-top: 10px;
-    -webkit-animation: slideLeft 2s 3s forwards;
-            animation: slideLeft 2s 3s forwards;
-  }
+  margin-left: -1px;
+  margin-right: -1px;
+  -webkit-animation: slideUp 2s 2s forwards;
+          animation: slideUp 2s 2s forwards;
 }
 
 .initial-overlay .square .outer-sq {
@@ -218,8 +250,8 @@ body {
 
 @media (max-width: 767px) {
   .initial-overlay .square .outer-sq {
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
   }
 }
 
@@ -236,8 +268,8 @@ body {
 
 @media (max-width: 767px) {
   .initial-overlay .square .outer-sq .inner-sq {
-    width: 135px;
-    height: 135px;
+    width: 85px;
+    height: 85px;
   }
 }
 
@@ -326,6 +358,76 @@ body {
   to {
     -webkit-transform: translateX(-101%);
             transform: translateX(-101%);
+  }
+}
+
+@-webkit-keyframes upAndDown {
+  0% {
+    -webkit-transform: translateY(0) rotate(45deg);
+            transform: translateY(0) rotate(45deg);
+  }
+  100% {
+    -webkit-transform: translateY(5%) rotate(45deg);
+            transform: translateY(5%) rotate(45deg);
+  }
+}
+
+@keyframes upAndDown {
+  0% {
+    -webkit-transform: translateY(0) rotate(45deg);
+            transform: translateY(0) rotate(45deg);
+  }
+  100% {
+    -webkit-transform: translateY(5%) rotate(45deg);
+            transform: translateY(5%) rotate(45deg);
+  }
+}
+
+@-webkit-keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes zIndex {
+  from {
+    z-index: 100;
+  }
+  to {
+    z-index: -1;
+  }
+}
+
+@keyframes zIndex {
+  from {
+    z-index: 100;
+  }
+  to {
+    z-index: -1;
   }
 }
 /*# sourceMappingURL=style-v2.css.map */

@@ -1,0 +1,314 @@
+@import 'variables';
+@import 'mixins';
+
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+@font-face {
+  font-family: 'SquidFont';
+  src: url('../GameOfSquids.ttf') format('truetype');
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: $greenD;
+  font-family: 'Major Mono Display', monospace;
+}
+
+.content {
+  padding: 20px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  .section {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      margin: 8px 0;
+      font-size: 20px;
+
+      span {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 0;
+    span {
+      font-family: 'SquidFont', sans-serif;
+      font-size: 2em;
+    }
+  }
+
+  .down-arrow {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    // i {
+    //   border: solid $pinkD;
+    //   border-width: 0 4px 4px 0;
+    //   display: inline-block;
+    //   padding: 12px;
+    //   transform: rotate(45deg);
+    //   animation: upAndDown 1s linear 0s infinite;
+    // }
+    .arrows {
+      width: 60px;
+      height: 72px;
+      position: absolute;
+      left: 50%;
+      margin-left: -30px;
+      bottom: 20px;
+      path {
+        stroke: $pinkD;
+        fill: transparent;
+        stroke-width: 2px;
+        animation: arrow 1.5s infinite;
+      }
+      path.a1 {
+        animation-delay: -1s;
+      }
+
+      path.a2 {
+        animation-delay: -0.5s;
+      }
+
+      path.a3 {
+        animation-delay: 0s;
+      }
+    }
+  }
+}
+
+.initial-overlay {
+  z-index: 100;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-evenly;
+  animation: zIndex 1ms 2.8s forwards;
+  @include breakpoint(xs) {
+    // flex-direction: column;
+  }
+  // background: $brown;
+
+  & > div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .circle {
+    flex: 2;
+    justify-content: flex-end;
+    animation: slideUp 2s 1.2s forwards;
+    background: $brown;
+    margin-left: -1px;
+    margin-right: -1px;
+    padding: 3px;
+    // @include breakpoint(xs) {
+    //   justify-content: center;
+    //   align-items: flex-end;
+    //   padding-bottom: 10px;
+    //   animation: slideLeft 2s 2s forwards;
+    // }
+
+    .outer-c {
+      width: 200px;
+      height: 200px;
+      background: $black;
+      border-radius: 100%;
+      position: relative;
+      @include breakpoint(xs) {
+        width: 100px;
+        height: 100px;
+      }
+
+      .inner-c {
+        position: absolute;
+        border-radius: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 170px;
+        height: 170px;
+        background: $brown;
+        @include breakpoint(xs) {
+          width: 85px;
+          height: 85px;
+        }
+      }
+    }
+  }
+
+  .triangle {
+    background: $brown;
+    animation: slideDown 2s 1.6s forwards;
+    margin-left: -1px;
+    margin-right: -1px;
+    padding: 3px;
+    // @include breakpoint(xs) {
+    //   animation: slideRight 2s 2.5s forwards;
+    // }
+
+    .outer-tr {
+      width: 0;
+      height: 0;
+      border-left: 115px solid transparent;
+      border-right: 115px solid transparent;
+      border-bottom: 200px solid $black;
+      position: relative;
+      @include breakpoint(xs) {
+        border-left: 58px solid transparent;
+        border-right: 58px solid transparent;
+        border-bottom: 100px solid $black;
+      }
+
+      .inner-tr {
+        position: absolute;
+        top: 25px;
+        left: -93px;
+        width: 0;
+        height: 0;
+        border-left: 92px solid transparent;
+        border-right: 92px solid transparent;
+        border-bottom: 160px solid $brown;
+        @include breakpoint(xs) {
+          top: 14px;
+          left: -46px;
+          border-left: 46px solid transparent;
+          border-right: 46px solid transparent;
+          border-bottom: 80px solid $brown;
+        }
+      }
+    }
+  }
+
+  .square {
+    flex: 2;
+    justify-content: flex-start;
+    padding-left: 5px;
+    background: $brown;
+    margin-left: -1px;
+    margin-right: -1px;
+    // @include breakpoint(xs) {
+    //   justify-content: center;
+    //   align-items: flex-start;
+    //   padding-left: 0;
+    //   padding-top: 10px;
+    //   animation: slideLeft 2s 3s forwards;
+    // }
+    animation: slideUp 2s 2s forwards;
+
+    .outer-sq {
+      width: 200px;
+      height: 200px;
+      background: $black;
+      position: relative;
+      @include breakpoint(xs) {
+        width: 100px;
+        height: 100px;
+      }
+
+      .inner-sq {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 170px;
+        height: 170px;
+        background: $brown;
+        @include breakpoint(xs) {
+          width: 85px;
+          height: 85px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-101%);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(101%);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(101%);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-101%);
+  }
+}
+
+@keyframes upAndDown {
+  0% {
+    transform: translateY(0) rotate(45deg);
+  }
+  100% {
+    transform: translateY(5%) rotate(45deg);
+  }
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zIndex {
+  from {
+    z-index: 100;
+  }
+  to {
+    z-index: -1;
+  }
+}
